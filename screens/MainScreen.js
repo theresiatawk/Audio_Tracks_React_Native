@@ -13,7 +13,9 @@ const MainScreen = (props) => {
   return (
     <ScrollView>
       <View style={styles.screen}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+          props.navigation.navigate({routeName: 'TracksDetails'});
+        }}>
           <Card style={styles.inputContainer}>
             <Text style={styles.title}>M4A</Text>
           </Card>
