@@ -5,61 +5,48 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
+  Platform,
+  FlatList,
 } from "react-native";
 
 import Card from "../components/Card";
+import Colors from "../constants/Colors";
+import { TRACKS } from "../data/TarcksData";
 
 const MainScreen = (props) => {
-  return (
-    <ScrollView>
+  const renderGridItem = (itemData) => {
+    return (
       <View style={styles.screen}>
-        <TouchableOpacity onPress={() => {
-          props.navigation.navigate({routeName: 'TracksDetails'});
-        }}>
+        <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate({
+              routeName: "TracksDetails",
+              params: {
+                trackId: itemData.item.id,
+              },
+            });
+          }}
+        >
           <Card style={styles.inputContainer}>
-            <Text style={styles.title}>M4A</Text>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Card style={styles.inputContainer}>
-            <Text style={styles.title}>FLAC</Text>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Card style={styles.inputContainer}>
-            <Text style={styles.title}>MP3</Text>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Card style={styles.inputContainer}>
-            <Text style={styles.title}>MP4</Text>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Card style={styles.inputContainer}>
-            <Text style={styles.title}>WAV</Text>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Card style={styles.inputContainer}>
-            <Text style={styles.title}>WMA</Text>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Card style={styles.inputContainer}>
-            <Text style={styles.title}>AAC</Text>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Card style={styles.inputContainer}>
-            <Text style={styles.title}>Audio File</Text>
+            <Text style={styles.title}>{itemData.item.title}</Text>
           </Card>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    );
+  };
+  return (
+    <FlatList
+      numColumns={2}
+      keyExtractor={(item, index) => item.id}
+      data={TRACKS}
+      renderItem={renderGridItem}
+    />
   );
 };
 
+MainScreen.navigationOptions = {
+  headerTitle: "Audio Tracks",
+};
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

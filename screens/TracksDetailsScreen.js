@@ -5,9 +5,12 @@ import {
   ScrollView,
 } from "react-native";
 
-import Card from "../components/Card";
+import { TRACKS } from "../data/TarcksData";
 
 const TracksDetailsScreen = (props) => {
+  const trackId = props.navigation.getParam('trackId');
+  const selectedTrack = TRACKS.find(track => track.id === trackId);
+
   return (
     <ScrollView>
       <View style={styles.screen}>
@@ -16,6 +19,15 @@ const TracksDetailsScreen = (props) => {
   );
 };
 
+TracksDetailsScreen.navigationOptions = navigationData => {
+  const trackId = navigationData.navigation.getParam('trackId');
+  const selectedTrack = TRACKS.find(track => track.id === trackId);
+
+  return {
+    headerTitle: selectedTrack.title
+  };
+
+}
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

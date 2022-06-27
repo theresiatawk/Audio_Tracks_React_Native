@@ -1,5 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
 
 const Card = props => {
   return (
@@ -15,7 +18,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.26,
     elevation: 8,
     backgroundColor: 'white',
-    padding: 20,
+    padding: 40,
     borderRadius: 10
   }
 });
