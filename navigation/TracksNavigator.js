@@ -10,6 +10,7 @@ const TracksNavigator = createStackNavigator(
   {
     Categories: MainScreen,
     TracksDetails: TracksDetailsScreen,
+
   },
   {
     defaultNavigationOptions: {

@@ -1,10 +1,10 @@
 class Track {
-    constructor(id, title, description, nbOfTracks, image) {
+    constructor(id, title, description, nbOfTracks, imageURL) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.nbOfTracks = nbOfTracks;
-        this.image = image; 
+        this.imageURL = imageURL; 
     }
 }
 export default Track;

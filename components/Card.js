@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.26,
     elevation: 8,
     backgroundColor: 'white',
-    padding: 40,
-    borderRadius: 10
+    padding:40,
+    borderRadius: 10,
   }
 });
 export default Card;
