@@ -3,8 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
-import Header from './components/Header';
-import MainScreen from './screens/MainScreen';
 import TracksNavigator from './navigation/TracksNavigator';
 
 const fetchFonts = () => {
